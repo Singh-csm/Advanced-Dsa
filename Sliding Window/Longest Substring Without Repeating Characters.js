@@ -1,4 +1,4 @@
-let s = "xvxcdfg";
+let s = "abcdeabc";
 
 let lengthOfLongestSubstring = function (s) {
   let i = 0;
@@ -8,11 +8,13 @@ let lengthOfLongestSubstring = function (s) {
   let obj = {};
   while (i < n && j < n) {
     if (!obj[s[i]]) {
-      obj[s[i++]] = 1;
+      obj[s[i]] = 1;
+      i++;
 
       len = Math.max(len, i - j);
     } else {
-      obj[s[j++]] = 0;
+      obj[s[j]] = 0;
+      j++;
     }
   }
   return len;
